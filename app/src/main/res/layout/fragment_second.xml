@@ -16,20 +16,55 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/previous"
-            app:layout_constraintBottom_toTopOf="@id/textview_second"
+            app:layout_constraintBottom_toTopOf="@id/diastolic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textview_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/diastolic"
+            android:layout_width="89dp"
+            android:layout_height="42dp"
             android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="Diastolic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_second" />
+
+        <EditText
+            android:id="@+id/sistolic"
+            android:layout_width="89dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="16dp"
+            android:hint="Sistolic"
+            app:layout_constraintStart_toEndOf="@+id/diastolic"
+            app:layout_constraintTop_toBottomOf="@+id/button_second" />
+
+        <EditText
+            android:id="@+id/pulso"
+            android:layout_width="89dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="16dp"
+            android:hint="Pulso"
+            app:layout_constraintStart_toEndOf="@+id/sistolic"
+            app:layout_constraintTop_toBottomOf="@+id/button_second" />
+
+        <Button
+            android:id="@+id/btn_save"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="53dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#039144"
+            android:backgroundTintMode="src_over"
+            app:icon="@android:drawable/ic_input_add"
+            app:iconSize="26dp"
+            app:iconTint="#D3FFFFFF"
+            app:layout_constraintStart_toEndOf="@+id/pulso"
+            app:layout_constraintTop_toBottomOf="@+id/button_second" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

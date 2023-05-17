@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/_uuid"
+        android:id="@+id/textsistolic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="Sistolic :"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,29 +19,52 @@
         android:id="@+id/sistolic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/_uuid"
+        app:layout_constraintStart_toEndOf="@+id/textsistolic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textdiastolic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Diastolic :"
+        app:layout_constraintStart_toEndOf="@+id/sistolic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/diastolic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/sistolic"
+        app:layout_constraintStart_toEndOf="@+id/textdiastolic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textpulso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Pulso :"
+        app:layout_constraintStart_toEndOf="@+id/diastolic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pulso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/diastolic"
+        app:layout_constraintStart_toEndOf="@+id/textpulso"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

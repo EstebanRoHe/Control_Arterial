@@ -1,22 +1,25 @@
 package cr.ac.una.controlarterial
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import cr.ac.una.controlarterial.databinding.FragmentSecondBinding
+import cr.ac.una.controlarterial.entity.TomaArterial
+import cr.ac.una.controlarterial.viewModel.TomaArterialViewModel
+import kotlinx.coroutines.launch
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private lateinit var viewModel: TomaArterialViewModel
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -35,6 +38,36 @@ class SecondFragment : Fragment() {
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
+
+        viewModel = ViewModelProvider(this).get(TomaArterialViewModel::class.java)
+
+        val editDiastolic = view.findViewById<EditText>(R.id.diastolic)
+        val editSistolic = view.findViewById<EditText>(R.id.sistolic)
+        val editPulso = view.findViewById<EditText>(R.id.pulso)
+
+
+        binding.btnSave.setOnClickListener {
+
+            val diastolic = editDiastolic.text.toString().toIntOrNull()
+            val sistolic = editSistolic.text.toString().toIntOrNull()
+            val pulso = editPulso.text.toString().toIntOrNull()
+
+            if (diastolic != null && sistolic != null && pulso != null) {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val tomaArterial = TomaArterial(null, diastolic, sistolic, pulso)
+                    val tomaArteriales = listOf(tomaArterial)
+                    viewModel.agregar(tomaArteriales)
+                    Toast.makeText(requireContext(), "Se agregó correctamente", Toast.LENGTH_SHORT).show()
+                    editDiastolic.setText("")
+                    editSistolic.setText("")
+                    editPulso.setText("")
+                }
+            } else {
+                Toast.makeText(requireContext(), "Los campos no pueden estar vacíos", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
     }
 
     override fun onDestroyView() {
