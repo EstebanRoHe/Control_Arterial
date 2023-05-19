@@ -44,8 +44,7 @@ class SecondFragment : Fragment() {
         val editDiastolic = view.findViewById<EditText>(R.id.diastolic)
         val editSistolic = view.findViewById<EditText>(R.id.sistolic)
         val editPulso = view.findViewById<EditText>(R.id.pulso)
-
-
+        
         binding.btnSave.setOnClickListener {
 
             val diastolic = editDiastolic.text.toString().toIntOrNull()
@@ -54,7 +53,7 @@ class SecondFragment : Fragment() {
 
             if (diastolic != null && sistolic != null && pulso != null) {
                 viewLifecycleOwner.lifecycleScope.launch {
-                    val tomaArterial = TomaArterial(null, diastolic, sistolic, pulso)
+                    val tomaArterial = TomaArterial(null,sistolic,diastolic, pulso)
                     val tomaArteriales = listOf(tomaArterial)
                     viewModel.agregar(tomaArteriales)
                     Toast.makeText(requireContext(), "Se agregó correctamente", Toast.LENGTH_SHORT).show()
