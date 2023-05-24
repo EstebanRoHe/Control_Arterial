@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="cr.ac.una.controlarterial.FirstFragment"
+        android:name="cr.ac.una.app_control_arterial.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first"> <!--abre del primero fragmento  -->
 
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="cr.ac.una.controlarterial.SecondFragment"
+        android:name="cr.ac.una.app_control_arterial.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second"><!--devuelve del segundo fragmento al primero -->
 
